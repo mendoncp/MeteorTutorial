@@ -1,0 +1,56 @@
+
+<template name="soccerApp">
+  <header><h1>Soccer Game App</h1></header>
+  <main>
+    {{>Template.dynamic template=content}}
+  </main>
+  <footer>Soccer App Inc.</footer>
+</template>
+
+<template name="Players">
+	<h3>Player Details</h3>
+	<ul class="list-group">
+		{{#each player in players}}
+	    <li>Player Name : {{player.name}} <br/> 
+          Jersey Number :  {{player.JNumber}} <br/>
+          Game Position : {{player.position}}<br/>
+        <br/>
+        <a href="/{{player.name}}">View Player Stats</a>
+       </li>
+		{{/each}}
+    <a href="/gamestats">View Game Stats</a>
+	</ul>
+
+</template>
+
+<template name="GameStats">
+	<h3>Game Stats</h3>
+	<ul class="list-group">
+		{{#each game in gamestats}}
+	    <li>Match Date : {{game.Date}} <br/> 
+          Opponent :  {{game.oppteam}} <br/>
+          Game Result : {{game.gameResult}}<br/>
+           Game Score : {{game.score}}<br/>
+      </li>
+		{{/each}}
+	</ul>
+  <div>
+<a href="/">BACK</a>
+</div>
+</template>
+
+<template name="PlayerStats">
+	<h3>Player Stats</h3>
+	<ul class="list-group">
+		{{#each pstats in playerstats}}
+	    <li>Player Name : {{pstats.playerName}} <br/> 
+          Jersey Number : {{pstats.jerName}}<br/>
+          Position : {{pstats.pposition}}<br/>
+          Total Goals :  {{pstats.tot_goals}} <br/>
+          Percentage of goals score during a win : {{pstats.percentage_wins}}<br/>
+          Percentage of goals score during a loss : {{pstats.percentage_loss}}<br/>
+      </li>
+		{{/each}}
+	</ul>
+<a href="/">BACK</a>
+</template>
